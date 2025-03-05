@@ -2,6 +2,8 @@
 import AnimatedButton from '@/Components/AnimatedButton.vue';
 import Featues from '@/Components/Featues.vue';
 import Default from '@/Layouts/Default.vue';
+
+
 </script>
 
 <template>
@@ -26,6 +28,9 @@ import Default from '@/Layouts/Default.vue';
                 </button>
             </div>
         </div>
+
+
+
         <Featues/>
     </Default>
 </template>

@@ -17,7 +17,10 @@
         <!-- Icons -->
         <div class="hidden md:flex space-x-4 text-white">
           <button><i class="fas fa-search"></i></button>
-          <button><i class="fas fa-shopping-bag"></i></button>
+          <button class="relative"><i class="fas text-2xl fa-shopping-bag"></i>
+           <div class="absolute text-sm top-0 -right-2 flex justify-center items-center bg-white text-black w-4 h-4 rounded-full">
+             {{ basket.items.length }}
+           </div> </button>
         </div>
   
         <!-- Mobile Menu Button -->
@@ -41,6 +44,8 @@
   <script setup>
 import { ref } from 'vue';
 import NavLink from './NavLink.vue';
+import { useBasketStore } from '@/store/basket';
+const basket = useBasketStore();
 
 const menuOpen = ref(false);
 

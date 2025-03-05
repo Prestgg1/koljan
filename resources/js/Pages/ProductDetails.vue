@@ -30,7 +30,6 @@
                 </button>
               </div>
             </div>
-  
             <!-- Səbətə Əlavə Et Düyməsi -->
             <button 
               @click="addToCart"
@@ -49,13 +48,28 @@
   import HeaderTitle from '@/Components/HeaderTitle.vue';
   import Default from '@/Layouts/Default.vue';
   import { ref } from 'vue';
+  import { useBasketStore } from '@/store/basket';
+  import {useToast} from 'vue-toast-notification';
+
+  const toast = useToast({position: 'top-right'});
+
+  const basket = useBasketStore();
   
   const { product } = defineProps(['product']);
 
   const selectedSize = ref(null);
   
   const addToCart = () => {
-    alert(`${product.value.name} məhsulu səbətə əlavə edildi!`);
+    if (!selectedSize.value) {
+      toast.error('Ölçü Seçilmədi! Zəhmət olmasa ölçü seçin');
+      return;
+    }
+     basket.addItem({
+      product: product,
+      size: selectedSize.value,
+    }); 
+    toast.success(`${product.name} məhsulu səbətə əlavə edildi!`);
+    
   };
   </script>
   

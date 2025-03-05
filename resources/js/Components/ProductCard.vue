@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col">
+    <div class="flex flex-col gap-6">
         <img :src="'/storage/'+product.image" :alt="product.name">
         <h3 class="text-lg font-medium">{{ product.name }}</h3>
         <p class="text-gray-500">{{ product.price }}</p>
