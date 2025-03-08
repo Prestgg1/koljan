@@ -6,7 +6,16 @@ export const useBasketStore = defineStore('basket', {
     },
     actions: {
         addItem(item) {
-            this.items.push(item)
+            console.log(item);
+            const existingItem = this.items.find(i => i.product.id == item.product.id)
+            if (existingItem) {
+                existingItem.count++
+            } else {
+                this.items.push({ ...item, count: 1 })
+            }
         },
+        setItems(items) {
+            this.items = items
+        }
     },
 })

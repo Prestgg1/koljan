@@ -42,7 +42,7 @@ const submit = () => {
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit" class="w-1/2 mx-auto py-10">
+        <form @submit.prevent="submit" class="md:w-1/3 w-1/2 mx-auto py-10">
             <div>
                 <InputLabel for="email" value="E-poçt" />
 
@@ -83,7 +83,14 @@ const submit = () => {
                 </label>
             </div>
 
-            <div class="mt-4 flex items-center justify-end">
+            <div class="mt-4 flex gap-5 items-center justify-end">
+                <Link
+                    :href="route('register')"
+                    class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                    Hesabınız Yoxdu? Qeydiyyatdan keç
+                </Link>
+                 
                 <Link
                     v-if="canResetPassword"
                     :href="route('password.request')"
@@ -101,5 +108,5 @@ const submit = () => {
                 </PrimaryButton>
             </div>
         </form>
-    </Default>
+    </Default> 
 </template>

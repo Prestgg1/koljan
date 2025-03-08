@@ -7,10 +7,10 @@ import TextInput from '@/Components/TextInput.vue';
 import HeaderTitle from '@/Components/HeaderTitle.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import Default from '@/Layouts/Default.vue';
-
 const form = useForm({
     name: '',
     email: '',
+    referral_code: '',
     password: '',
     password_confirmation: '',
 });
@@ -97,6 +97,19 @@ const submit = () => {
         />
     </div>
 
+    <div class="mt-4">
+    <InputLabel for="referral_code" value="Referans Kodu (Opsiyonal)"  />
+
+<TextInput
+    id="referral_code"
+    type="text"
+    class="mt-1 block w-full  text-white rounded-md"
+    v-model="form.referral_code"
+/>
+
+<InputError class="mt-2" :message="form.errors.referral_code" />
+</div>
+    
     <div class="mt-4 flex items-center justify-end">
         <Link
             :href="route('login')"

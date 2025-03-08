@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AnimatedButton from '@/Components/AnimatedButton.vue';
 import Featues from '@/Components/Featues.vue';
+import ReklamCard from '@/Components/ReklamCard.vue';
 import Default from '@/Layouts/Default.vue';
 
 
@@ -28,10 +29,9 @@ import Default from '@/Layouts/Default.vue';
                 </button>
             </div>
         </div>
-
-
-
+        
         <Featues/>
+        <ReklamCard/>
     </Default>
 </template>
 

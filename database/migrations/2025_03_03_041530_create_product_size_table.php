@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id')->constrained()->onDelete('cascade'); // Ürün ile ilişki
             $table->foreignId('size_id')->constrained()->onDelete('cascade'); // Ölçü ile ilişki
-            $table->primary(['product_id', 'size_id']); // Ürün ve ölçü arasında bir kesişim
+            $table->unique(['product_id', 'size_id']); // Ürün ve ölçü arasında bir kesişim
             $table->timestamps();
         });
     }

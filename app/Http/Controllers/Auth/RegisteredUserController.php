@@ -34,6 +34,7 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            /*   'referral_code' => 'nullable|string|exists:users,referral_code', */
         ]);
 
         $user = User::create([
@@ -42,8 +43,20 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
+        // Eğer referans kodu girilmişse ve geçerliyse
+        if ($request->filled('referral_code')) {
+            $referrer = User::where('referral_code', $request->referral_code)->first();
+            if ($referrer) {
+                // Kullanıcının referans aldığı kişiyi kaydet
+                $user->referred_by = $referrer->id;
+                $user->save();
 
+                // Kullanıcıyı 50$ harcama yapana kadar önbelleğe ekle
+                Cache::put("pending_bonus_{$user->id}", $user->id, now()->addDays(60));
+            }
+        }
+
+        event(new Registered($user));
         Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));

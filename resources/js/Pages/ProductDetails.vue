@@ -7,7 +7,6 @@
           <div class="bg-gray-100 p-5 rounded-xl">
             <img :src="'/storage/' + product.image" :alt="product.name" class="w-full h-auto rounded-lg">
           </div>
-  
           <div class="flex flex-col justify-between">
             <div>
               <h1 class="text-3xl font-bold text-black">{{ product.name }}</h1>
