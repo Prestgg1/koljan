@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\BalanceTransaction;
+use Illuminate\Support\Facades\Log;
 
 class BalanceTransactionObserver
 {
@@ -21,7 +22,10 @@ class BalanceTransactionObserver
     {
         if ($transaction->isDirty('status') && $transaction->status === 'approved') {
             $transaction->user->updateTotalSpent($transaction->total_price);
+            $transaction->user->processReferralBonus($transaction->total_price);
         }
+
+        Log::info($transaction->user);
     }
 
     /**

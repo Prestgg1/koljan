@@ -103,7 +103,7 @@ const submit = () => {
 <TextInput
     id="referral_code"
     type="text"
-    class="mt-1 block w-full  text-white rounded-md"
+    class="mt-1 block w-full rounded-md"
     v-model="form.referral_code"
 />
 

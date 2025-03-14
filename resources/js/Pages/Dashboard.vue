@@ -2,13 +2,13 @@
 import HeaderTitle from '@/Components/HeaderTitle.vue';
 import Default from '@/Layouts/Default.vue';
 import { Head,Link } from '@inertiajs/vue3';
-
+import ReferralTree from '@/Components/ReferralTree.vue';
 
 const props = defineProps(['user']);
 </script>
 
 <template>
-  <Head title="Dashboard" />
+  <Head title="Idarə Paneli" />
 
   <Default>
     <HeaderTitle>İdarə Paneli</HeaderTitle>
@@ -53,14 +53,16 @@ const props = defineProps(['user']);
               Çıxış et
             </Link>
             <Link href="/profile" class="mt-4 font-bold cursor-pointer flex justify-center items-center w-full bg-black text-white py-2 rounded-md hover:opacity-80 transition-all duration-200">Hesab Məlumatları</Link>
-            <Link href="/referral" class="mt-4 font-bold cursor-pointer flex justify-center items-center w-full bg-black text-white py-2 rounded-md hover:opacity-80 transition-all duration-200">Referanslar</Link>
+            <Link href="/withdrawal" class="mt-4 font-bold cursor-pointer flex justify-center items-center w-full bg-black text-white py-2 rounded-md hover:opacity-80 transition-all duration-200">Pul Çıxarış</Link>
           </div>
+          <ReferralTree :user="user" />
 
           <!-- Bakiye Kartı -->
           <div class="bg-white p-6 rounded-lg shadow-md">
             <h4 class="text-xl font-semibold text-gray-700 mb-4">Balans</h4>
             <div class="text-gray-600">Hazırki balans: <span class="font-medium text-gray-900">{{ props.user.balance }}</span></div>
             <div class="text-gray-600">Referrans Kodu: <span class="font-medium text-gray-900">{{ props.user.referral_code }}</span></div>
+            <div class="text-gray-600">Dəvət edən: <span class="font-medium text-gray-900">{{ props.user?.referred_by?.name ?? 'Heçkim' }}</span></div>
             <div class="text-gray-600">Ümumi Xərclənən: <span class="font-medium text-gray-900">{{ props.user.total_spent }}</span></div>
             <div class="text-gray-600">Ümumi Referrans Qazancı: <span class="font-medium text-gray-900">{{ props.user.referral_revenue }}</span></div>
           </div>

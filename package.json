@@ -30,6 +30,8 @@
     },
     "dependencies": {
         "pinia": "^3.0.1",
-        "vue-toast-notification": "^3"
+        "vue-blurhash": "^0.1.4",
+        "vue-toast-notification": "^3",
+        "vue-tree-chart": "^1.2.9"
     }
 }

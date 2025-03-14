@@ -59,12 +59,7 @@ class ProductResource extends Resource
                 // Ölçüler
 
                 // Ürün Resmi
-                FileUpload::make('image')
-                    ->image()
-                    ->disk('public')
-                    ->directory('products')
-                    ->nullable()
-                    ->maxSize(1024), // 1MB max
+                FileUpload::make('image')->disk('media')->image()->optimize('webp'), // 1MB max
             ]);
     }
 
@@ -89,7 +84,7 @@ class ProductResource extends Resource
                     ->searchable(),
 
                 // Ürün Resmi
-                ImageColumn::make('image'),
+                ImageColumn::make('image')->disk('media'),
             ])
             ->filters([
                 // Filtreleme ekleyebilirsiniz

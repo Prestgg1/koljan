@@ -18,7 +18,7 @@ import ReklamCard from '@/Components/ReklamCard.vue';
                     <h2 class="text-lg font-semibold uppercase text-gray-600">Bizim Hekayəmiz</h2>
                     <p class="mt-4 text-gray-700">
                         Koljan layihəsi 2022-ci ildə texnologiya və modanın inkişaf etdiyi yeni
-                        Azərbaycan ideyası olaraq ortaya çıxdı. Elmar Abbaslı tərəfindən düşünülmüş
+                        Azərbaycan ideyası olaraq ortaya çıxdı. Elnar Abbaslı tərəfindən düşünülmüş
                         və 2023-cü ildə başlanmış bu start-up, network marketing və modanı
                         birləşdirən unikal bir platformadır.
                     </p>

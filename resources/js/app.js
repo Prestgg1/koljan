@@ -8,9 +8,11 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 import { createPinia } from 'pinia';
 import ToastPlugin from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-bootstrap.css';
-
+import 'vue-blurhash/dist/vue-blurhash.css'
+/* import VueBlurHash from 'vue-blurhash'
+import 'vue-blurhash/dist/vue-blurhash.css' */
 const pinia = createPinia()
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = 'Koljan';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -23,11 +25,15 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(pinia)
+
             .use(ToastPlugin)
             .use(ZiggyVue)
             .mount(el);
     },
     progress: {
-        color: '#4B5563',
+        progress: {
+            color: '#4B5563',
+        },
     },
 });
+

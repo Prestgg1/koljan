@@ -3,12 +3,14 @@ import AnimatedButton from '@/Components/AnimatedButton.vue';
 import Featues from '@/Components/Featues.vue';
 import ReklamCard from '@/Components/ReklamCard.vue';
 import Default from '@/Layouts/Default.vue';
+import { Head, Link } from '@inertiajs/vue3';
 
 
 </script>
 
 <template>
     <Default>
+        <Head title="Ana Səhifə" />
         <div class="h-screen bg-cover bg-no-repeat bg-center flex items-center justify-center text-center px-6 relative" style="background-image: url('/assets/m.gif');">
             
             <!-- Arka plan için daha belirgin opaklık -->
@@ -24,9 +26,9 @@ import Default from '@/Layouts/Default.vue';
                     Koljan size normal qiymətinə aldığınız paltarları daha fərqli tonlar qataraq alışverişi daha sərfəli və daha gəlirli edir.
                     Sadəcə bir T-shirt qiymətinə Biznesə qoşularaq real Bizneslə məşğul olun.
                 </p>
-                <button class="border border-white px-6 py-2 text-white text-lg font-semibold tracking-wide uppercase hover:bg-white hover:text-black transition-all duration-300">
+                <Link href="/shop" as="button" class="border border-white px-6 py-2 text-white text-lg font-semibold tracking-wide uppercase hover:bg-white hover:text-black transition-all duration-300">
                     Kolleksiyalar
-                </button>
+                </Link>
             </div>
         </div>
         
